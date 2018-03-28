@@ -25,26 +25,26 @@ class MuseumTest < MiniTest::Test
 
   def test_museum_can_have_one_exhibit
     @museum.add_exhibit("The Industrial Revolution", 20)
-    assert_equal ({"The Industrial Revolution"=>20}), @museum.exhibits
+    assert_equal ["The Industrial Revolution"], @museum.exhibits.keys
   end
 
   def test_museum_can_have_multiple_exhibits
     @museum.add_exhibit("The Industrial Revolution", 20)
     @museum.add_exhibit("Gems and Minerals", 0)
     @museum.add_exhibit("Impressionist Paintings", 30)
-    expected = {
-      "The Industrial Revolution"=>20,
-      "Gems and Minerals"=>0,
-      "Impressionist Paintings"=>30
-    }
-    assert_equal expected, @museum.exhibits
+    expected = [
+      "The Industrial Revolution",
+      "Gems and Minerals",
+      "Impressionist Paintings"
+    ]
+    assert_equal expected, @museum.exhibits.keys
   end
 
   def test_museum_exhibits_have_correct_cost
     @museum.add_exhibit("The Industrial Revolution", 20)
     @museum.add_exhibit("Gems and Minerals", 0)
-    assert_equal 20, @museum.exhibits["The Industrial Revolution"]
-    assert_equal 0, @museum.exhibits["Gems and Minerals"]
+    assert_equal 20, @museum.exhibits["The Industrial Revolution"][:cost]
+    assert_equal 0, @museum.exhibits["Gems and Minerals"][:cost]
   end
 
   def test_starting_revenu_is_zero
