@@ -8,5 +8,6 @@ class Museum
   end
 
   def add_exhibit(name, cost)
+    @exhibits << {name=>cost}
   end
 end
