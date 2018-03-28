@@ -29,7 +29,7 @@ class MuseumTest < MiniTest::Test
     @museum.add_exhibit("Gems and Minerals", 0)
     @museum.add_exhibit("Impressionist Paintings", 30)
     expected = [
-      {"The Industrial Reovlution"=>20},
+      {"The Industrial Revolution"=>20},
       {"Gems and Minerals"=>0},
       {"Impressionist Paintings"=>30}
     ]
@@ -40,6 +40,6 @@ class MuseumTest < MiniTest::Test
     @museum.add_exhibit("The Industrial Revolution", 20)
     @museum.add_exhibit("Gems and Minerals", 0)
     assert_equal 20, @museum.exhibits[0]["The Industrial Revolution"]
-    assert_equal 20, @museum.exhibits[1]["Gems and Minerals"]
+    assert_equal 0, @museum.exhibits[1]["Gems and Minerals"]
   end
 end
