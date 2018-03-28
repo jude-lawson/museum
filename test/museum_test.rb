@@ -110,4 +110,16 @@ class MuseumTest < MiniTest::Test
     @museum.admit(@jack)
     assert_equal 105, @museum.revenue
   end
+
+  # def test_patrons_of_exhibit_with_one_patron
+  #   @museum.add_exhibit("The Industrial Revolution", 20)
+  #   @bob.add_interest("The Industrial Revolution")
+  #   @museum.admit(@bob)
+  #   assert_equal ["Bob"]
+  # end
+
+  def test_patrons_of_exhibit_with_multiple_patrons
+  end
+
+
 end
