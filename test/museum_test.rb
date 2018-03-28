@@ -115,8 +115,7 @@ class MuseumTest < MiniTest::Test
     @museum.add_exhibit("The Industrial Revolution", 20)
     @bob.add_interest("The Industrial Revolution")
     @museum.admit(@bob)
-    actual = @museum.exhibits["The Industrial Revolution"][:patrons]
-    assert_equal ["Bob"], actual
+    assert_equal ["Bob"], museum.patrons_of("The Industrial Revolution")
   end
 
   def test_patrons_of_exhibit_with_multiple_patrons
@@ -127,8 +126,7 @@ class MuseumTest < MiniTest::Test
     @museum.admit(@bob)
     @museum.admit(@sally)
     @museum.admit(@jack)
-    actual = @museum.exhibits["The Industrial Revolution"][:patrons]
-    assert_equal ["Bob", "Sally", "Jack"], actual
+    assert_equal ["Bob", "Sally", "Jack"], museum.patrons_of("The Industrial Revolution")
   end
 
   def test_patrons_of_exhibit_does_not_add_patron_without_interest
@@ -140,10 +138,8 @@ class MuseumTest < MiniTest::Test
     @museum.admit(@bob)
     @museum.admit(@sally)
     @museum.admit(@jack)
-    industrial_actual = @museum.exhibits["The Industrial Revolution"][:patrons]
-    impressionist_actual = @museum.exhibits["Impressionist Paintings"][:patrons]
-    assert_equal ["Bob", "Sally"], industrial_actual
-    assert_equal ["Jack"], impressionist_actual
+    assert_equal ["Bob", "Sally"], @museum.patrons_of("The Industrial Revolution")
+    assert_equal ["Jack"], @museum.patrons_of("Impresionist Paintings")
   end
 
 end
