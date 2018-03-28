@@ -176,4 +176,18 @@ class MuseumTest < MiniTest::Test
     assert_equal expected, @museum.exhibits_by_attendees
   end
 
+  # def test_exhibit_can_be_removed
+  #   @museum.add_exhibit("Impressionist Paintings", 30)
+  #   @museum.add_exhibit("The Industrial Revolution", 20)
+  #   @museum.add_exhibit("Gems and Minerals", 0)
+  #   @bob.add_interest("The Industrial Revolution")
+  #   @sally.add_interest("The Industrial Revolution")
+  #   @jack.add_interest("Impressionist Paintings")
+  #   @museum.admit(@bob)
+  #   @museum.admit(@sally)
+  #   @museum.admit(@jack)
+  #   assert_equal ["The Industrial Revolution", "Impressionist Paintings"], @museum.exhibits.keys
+  # end
+
+
 end
