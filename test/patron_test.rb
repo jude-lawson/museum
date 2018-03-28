@@ -12,15 +12,23 @@ class PatronTest < MiniTest::Test
   end
 
   def test_patron_has_name
-    
+    assert_equal "Bob", @patron.name
   end
 
   def test_patron_starts_without_interests
+    assert_equal [], @patron.interests
   end
 
   def test_patron_can_have_one_interest
+    @patron.add_interest("Dead Sea Scrolls")
+    assert_equal %w[Dead\ Sea\ Scrolls], @patron.interests
   end
 
   def test_patron_can_have_multiple_interests
+    @patron.add_interest("Dead Sea Scrolls")
+    @patron.add_interest("Gems and Minerals")
+    @patron.add_interest("The Industrial Revolution")
+    expected = ["Dead Sea Scrolls", "Gems and Minerals", "The Industrial Revolution"]
+    assert_equal expected, @patron.interests
   end
 end
