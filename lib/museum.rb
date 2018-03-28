@@ -32,6 +32,12 @@ class Museum
   end
 
   def exhibits_by_attendees
+    exhibits_sorted_by_number_of_patrons = @exhibits.sort_by do |exhibit|
+      @exhibits[exhibit[0]][:patrons].length
+    end.reverse
+    exhibits_sorted_by_number_of_patrons.map do |exhibit_set|
+      exhibit_set[0]
+    end
   end
 
 end

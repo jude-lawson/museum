@@ -159,7 +159,7 @@ class MuseumTest < MiniTest::Test
     @museum.admit(@bob)
     @museum.admit(@sally)
     @museum.admit(@jack)
-    expected = ["The Industrial Revolution", "Impressionist Paintings", "Gems and Minerals"]
+    expected = ["Gems and Minerals", "Impressionist Paintings", "The Industrial Revolution"]
     assert_equal expected, @museum.exhibits_by_attendees
   end
 
@@ -172,7 +172,7 @@ class MuseumTest < MiniTest::Test
     @museum.admit(@bob)
     @museum.admit(@sally)
     @museum.admit(@jack)
-    expected = ["The Industrial Revolutions", "Imapressionist Paintings"]
+    expected = ["The Industrial Revolution", "Impressionist Paintings"]
     assert_equal expected, @museum.exhibits_by_attendees
   end
 
