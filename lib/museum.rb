@@ -10,7 +10,7 @@ class Museum
   end
 
   def add_exhibit(name, cost)
-    @exhibits[name] = {cost: cost}
+    @exhibits[name] = {cost: cost, patrons: []}
   end
 
   def admit(patron)
@@ -18,12 +18,13 @@ class Museum
     patron.interests.each do |interest|
       if @exhibits.include?(interest)
         @revenue += @exhibits[interest][:cost]
+        add_patron_of_exhibit(patron, interest)
       end
     end
   end
 
-  def add_patron_of_exhibit
-
+  def add_patron_of_exhibit(patron, interest)
+    @exhibits[interest][:patrons] << patron.name
   end 
 
 end
