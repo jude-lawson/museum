@@ -27,4 +27,8 @@ class Museum
     @exhibits[interest][:patrons] << patron.name
   end 
 
+  def patrons_of(exhibit)
+    @exhibits[exhibit][:patrons]
+  end
+
 end
