@@ -52,21 +52,19 @@ class MuseumTest < MiniTest::Test
   end
 
   def test_revenue_with_one_admittance_and_no_included_interest
-    skip
     @bob.add_interest("The Industrial Revolution")
     @museum.admit(@bob)
     assert_equal 10, @museum.revenue
   end
 
-  def test_revenue_with_one_admittance_and_one_interest
-    skip
+  def test_revenue_with_one_admittance_and_one_included_interest
+    @museum.add_exhibit("The Industrial Revolution", 20)
     @bob.add_interest("The Industrial Revolution")
     @museum.admit(@bob)
     assert_equal 30, @museum.revenue
   end
 
   def test_revenue_with_three_admittances_and_no_included_interests
-    skip
     @bob.add_interest("The Industrial Revolution")
     @sally.add_interest("Gems and Minerals")
     @jack.add_interest("Impressionist Paintings")
@@ -90,7 +88,6 @@ class MuseumTest < MiniTest::Test
   end
 
   def test_revenue_with_three_admittances_and_two_same_included_interests
-    skip
     @museum.add_exhibit("The Industrial Revolution", 10)
     @museum.add_exhibit("Impressionist Paintings", 65)
     @sally.add_interest("Impressionist Paintings")
@@ -103,7 +100,6 @@ class MuseumTest < MiniTest::Test
   end
 
   def test_revenue_with_three_admittances_and_varied_interests_one_without_interest
-    skip
     @museum.add_exhibit("The Industrial Revolution", 10)
     @museum.add_exhibit("Impressionist Paintings", 65)
     @sally.add_interest("Gems and Minerals")
