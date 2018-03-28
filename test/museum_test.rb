@@ -42,4 +42,22 @@ class MuseumTest < MiniTest::Test
     assert_equal 20, @museum.exhibits[0]["The Industrial Revolution"]
     assert_equal 0, @museum.exhibits[1]["Gems and Minerals"]
   end
+
+  def test_revenue_with_one_admittance_and_no_interest
+  end
+
+  def test_revenue_with_one_admittance_and_one_interest
+  end
+
+  def test_revenue_with_three_admittances_and_no_interests
+  end
+
+  def test_revenue_with_three_admittances_and_one_interest_each
+  end
+
+  def test_revenu_with_three_admittances_and_varied_ineterests
+  end
+
+  def test_revenue_with_three_admittances_and_varied_interests_one_without_interest
+  end
 end
