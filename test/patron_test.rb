@@ -25,9 +25,9 @@ class PatronTest < MiniTest::Test
   end
 
   def test_patron_can_have_multiple_interests
-    @patron.add_interes("Dead Sea Scrolls")
-    @patron.add_interes("Gems and Minerals")
-    @patron.add_interes("The Industrial Revolution")
+    @patron.add_interest("Dead Sea Scrolls")
+    @patron.add_interest("Gems and Minerals")
+    @patron.add_interest("The Industrial Revolution")
     expected = ["Dead Sea Scrolls", "Gems and Minerals", "The Industrial Revolution"]
     assert_equal expected, @patron.interests
   end
