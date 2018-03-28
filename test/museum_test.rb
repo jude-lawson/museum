@@ -142,4 +142,38 @@ class MuseumTest < MiniTest::Test
     assert_equal ["Jack"], @museum.patrons_of("Impressionist Paintings")
   end
 
+  def test_sorted_exhibits_with_only_one_exhibit
+    @museum.add_exhibit("The Industrial Revolution", 20)
+    @bob.add_interest("The Industrial Revolution")
+    @museum.admit(@bob)
+    assert_equal ["The Industrial Revolution"], @museum.exhibits_by_attendees
+  end
+
+  def test_sorted_exhibits_with_only_one_attendee_each
+    @museum.add_exhibit("The Industrial Revolution", 20)
+    @museum.add_exhibit("Impressionist Paintings", 30)
+    @museum.add_exhibit("Gems and Minerals", 0)
+    @bob.add_interest("The Industrial Revolution")
+    @sally.add_interest("Gems and Minerals")
+    @jack.add_interest("Impressionist Paintings")
+    @museum.admit(@bob)
+    @museum.admit(@sally)
+    @museum.admit(@jack)
+    expected = ["The Industrial Revolution", "Impressionist Paintings", "Gems and Minerals"]
+    assert_equal expected, @museum.exhibits_by_attendees
+  end
+
+  def test_sorted_exhibits_returns_correct_array
+    @museum.add_exhibit("Impressionist Paintings", 30)
+    @museum.add_exhibit("The Industrial Revolution", 20)
+    @bob.add_interest("The Industrial Revolution")
+    @sally.add_interest("The Industrial Revolution")
+    @jack.add_interest("Impressionist Paintings")
+    @museum.admit(@bob)
+    @museum.admit(@sally)
+    @museum.admit(@jack)
+    expected = ["The Industrial Revolutions", "Imapressionist Paintings"]
+    assert_equal expected, @museum.exhibits_by_attendees
+  end
+
 end

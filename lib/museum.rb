@@ -31,4 +31,7 @@ class Museum
     @exhibits[exhibit][:patrons]
   end
 
+  def exhibits_by_attendees
+  end
+
 end
